@@ -76,6 +76,8 @@ public class MainForm : Form
         sag.Controls.Add(butonlar, 0, 5);
 
         var bolme = new SplitContainer { Dock = DockStyle.Fill, SplitterDistance = 280, FixedPanel = FixedPanel.Panel1 };
+        // SplitterDistance form boyutlanmadan önce verilirse kırpılır; yüklenince uygula.
+        Load += (_, _) => bolme.SplitterDistance = 280;
         bolme.Panel1.Controls.Add(sol);
         bolme.Panel2.Controls.Add(sag);
 
